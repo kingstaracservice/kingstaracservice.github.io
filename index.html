@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Star AC Service | Professional Air Conditioning Solutions</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #00a8ff;
+            --secondary: #0097e6;
+            --dark: #1e272e;
+            --light: #f5f6fa;
+            --accent: #ffa502;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            animation: gradientBG 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1585128790647-8efb5b1f0c51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            position: relative;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 165, 2, 0.4);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .about-image {
+            flex: 1;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Services Section */
+        .services {
+            background: linear-gradient(to right, #f5f7fa, #e4e8eb);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+        
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.4s; }
+        .service-card:nth-child(3) { animation-delay: 0.6s; }
+        .service-card:nth-child(4) { animation-delay: 0.8s; }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        /* Why Choose Us */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+        
+        .feature:nth-child(1) { animation-delay: 0.2s; }
+        .feature:nth-child(2) { animation-delay: 0.4s; }
+        .feature:nth-child(3) { animation-delay: 0.6s; }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .contact .section-title h2 {
+            color: white;
+        }
+        
+        .contact .section-title h2::after {
+            background: var(--accent);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .contact-card:nth-child(1) { animation-delay: 0.2s; }
+        .contact-card:nth-child(2) { animation-delay: 0.4s; }
+        .contact-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        .contact-card h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-card p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">King <span>Star</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium <span>AC Services</span> For Your Comfort</h1>
+                <p>Expert air conditioning solutions for homes and businesses. Fast, reliable service with a 100% satisfaction guarantee.</p>
+                <a href="#contact" class="btn">Get a Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted AC Service Provider Since 2022</h3>
+                    <p>King Star AC Service was founded in 2022 with a mission to provide top-quality air conditioning services to residential and commercial clients. Our team of certified technicians brings years of experience and expertise to every job.</p>
+                    <p>We pride ourselves on our attention to detail, commitment to customer satisfaction, and use of only the highest quality parts and materials in all our work.</p>
+                    <p>From installation to maintenance and repair, we handle all your AC needs with professionalism and care.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AC Technician at work">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>AC Installation</h3>
+                    <p>Professional installation of all AC types including split, window, and central systems with proper sizing and placement.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h3>Gas Charging</h3>
+                    <p>Expert refrigerant gas charging services using environmentally friendly refrigerants for optimal cooling performance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>AC Repair</h3>
+                    <p>Diagnosis and repair of all AC issues including cooling problems, strange noises, water leakage, and electrical faults.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Retailing & Selling</h3>
+                    <p>We offer top-brand AC units at competitive prices with professional installation and warranty options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section" id="why-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Certified Technicians</h3>
+                    <p>Our team consists of factory-trained and certified professionals with extensive experience in all AC brands.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7 Emergency Service</h3>
+                    <p>We offer round-the-clock emergency services because AC problems don't always happen during business hours.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Quality service doesn't have to break the bank. We offer competitive pricing with no hidden fees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                    <p>S/O Ramesh Raivali Jaiswar, Ramabai Ambedkar Nagar</p>
+                    <p>Khemani, O.T Section, Near Jai Ambe Kirana Store</p>
+                    <p>Ulhasnagar-2, Ulhasnagar, Thane, Maharashtra - 421002</p>
+                </div>
+                <div class="contact-card">
+                    <h3><i class="fas fa-phone-alt"></i> Contact Info</h3>
+                    <p>Phone: 8953734646</p>
+                    <p>Alternate: 8954 6393 2137</p>
+                    <p>Email: info@kingstarac.com</p>
+                </div>
+                <div class="contact-card">
+                    <h3><i class="fas fa-clock"></i> Working Hours</h3>
+                    <p>Monday - Saturday: 8:00 AM - 8:00 PM</p>
+                    <p>Sunday: Emergency Services Only</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">King <span>Star</span></div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="copyright">&copy; 2023 King Star AC Service. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation trigger on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.service-card, .feature, .contact-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(elementPosition < screenPosition) {
+                        element.style.animationPlayState = 'running';
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Trigger on load for elements in view
+        });
+    </script>
+</body>
+</html>

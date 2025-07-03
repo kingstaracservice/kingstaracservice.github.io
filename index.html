@@ -297,6 +297,70 @@
             color: var(--dark);
         }
         
+        /* Service Videos Section */
+        .service-videos {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .service-videos .section-title h2 {
+            color: white;
+        }
+        
+        .service-videos .section-title h2::after {
+            background: var(--accent);
+        }
+        
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .video-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+        
+        .video-card:nth-child(1) { animation-delay: 0.2s; }
+        .video-card:nth-child(2) { animation-delay: 0.4s; }
+        .video-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
         /* Why Choose Us */
         .features {
             display: grid;
@@ -482,6 +546,10 @@
             .contact-container {
                 flex-direction: column;
             }
+            
+            .videos-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -496,6 +564,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#videos">Service Videos</a></li>
                     <li><a href="#why-us">Why Choose Us</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -568,6 +637,56 @@
                     </div>
                     <h3>Retailing & Selling</h3>
                     <p>We offer top-brand AC units at competitive prices with professional installation and warranty options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Videos Section -->
+    <section class="section service-videos" id="videos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Service Videos</h2>
+            </div>
+            <div class="videos-container">
+                <div class="video-card">
+                    <div class="video-container">
+                        <!-- Replace with your actual video file -->
+                        <video controls poster="images/video1-poster.jpg">
+                            <source src="service1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>AC Installation Process</h3>
+                        <p>Watch our expert technicians install a split AC unit with precision and care.</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-container">
+                        <!-- Replace with your actual video file -->
+                        <video controls poster="images/video2-poster.jpg">
+                            <source src="service2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Gas Charging Demonstration</h3>
+                        <p>See how we properly charge refrigerant gas into AC systems for optimal performance.</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-container">
+                        <!-- Replace with your actual video file -->
+                        <video controls poster="images/video3-poster.jpg">
+                            <source src="service3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>AC Maintenance Tips</h3>
+                        <p>Learn essential maintenance tips to keep your AC running efficiently.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -681,8 +800,6 @@
             <div class="footer-content">
                 <div class="logo">King <span>Star</span></div>
                 <div class="social-links">
-                   
-                
                     <a href="https://www.instagram.com/anup_babu_895.3?igsh=MTk5a212NTdkdWxwOA=="><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/918953734646"><i class="fab fa-whatsapp"></i></a>
                 </div>
@@ -695,7 +812,7 @@
         // Simple animation trigger on scroll
         document.addEventListener('DOMContentLoaded', function() {
             const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.service-card, .feature, .contact-card, .contact-form, .about-text, .about-image');
+                const elements = document.querySelectorAll('.service-card, .feature, .contact-card, .contact-form, .about-text, .about-image, .video-card');
                 
                 elements.forEach(element => {
                     const elementPosition = element.getBoundingClientRect().top;
